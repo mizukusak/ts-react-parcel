@@ -4,10 +4,10 @@ export interface AxiosRequestConfig extends AxiosRequestConfig {
 }
 
 export interface HttpResquest {
-  get?(url, data, baseUrl?): Promise<any>,
-  post?(url, data, baseUrl?): Promise<any>,
-  delete?(url, data, baseUrl?): Promise<any>,
-  put?(url, data, baseUrl?): Promise<any>
+  get?(url: string, data: any, baseUrl?: string): Promise<any>,
+  post?(url: string, data: any, baseUrl?: string): Promise<any>,
+  delete?(url: string, data: any, baseUrl?: string): Promise<any>,
+  put?(url: string, data: any, baseUrl?: string): Promise<any>
 }
 
 export interface PlainObject {

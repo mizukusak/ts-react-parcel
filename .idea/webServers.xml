@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ce810148-f57f-475b-b1db-028dee868b80" name="gbc.dev.zne.pub" url="http://gbc.dev.zne.pub">
+        <fileTransfer host="gbc.dev.zne.pub" port="22" privateKey="C:\Users\shimazu fumiaki\.ssh\id_rsa" rootFolder="/home/webadmin/gbc" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="50000" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

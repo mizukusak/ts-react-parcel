@@ -14,15 +14,17 @@ const DEFAULTCONFIG = {
 }
 
 // 测试, 全部通过, 请自行修改
-const isSuccess = (v, res) => {
+const isSuccess = (_v: string, _res: any/*v, res*/) => {
   return true
 }
 
 const http: HttpResquest = {}
 const methods = ['get', 'post', 'put', 'delete']
 
+let httpBase: any = {}
+
 methods.forEach(v => {
-  http[v] = (url, data, baseUrl?) => {
+  httpBase[v] = (url: string, data: any, baseUrl?: string) => {
     const axiosConfig: AxiosRequestConfig = {
       method: v,
       url,
@@ -85,5 +87,10 @@ methods.forEach(v => {
     })
   }
 })
+
+http.get = httpBase.get
+http.post = httpBase.post
+http.put = httpBase.put
+http.delete = httpBase.delete
 
 export default http

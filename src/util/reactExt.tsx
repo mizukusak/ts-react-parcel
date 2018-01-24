@@ -7,8 +7,8 @@ import * as api from './../util/api'
  * 扩展组件/store类以方便调用
  * 集成api, antd公用组件
  */
-interface Props {}
-interface States {}
+// interface Props {}
+// interface States {}
 
 export class ComponentExt<P, S> extends React.Component<P, S> {
   readonly api = api
@@ -27,3 +27,6 @@ export class StoreExt {
   readonly $message = message
   readonly $notification = notification
 }
+
+export type ReactComponent = typeof React.Component| React.SFC
+

@@ -9,18 +9,31 @@
     "rootDirs": [
       "./src"
     ],
+    "experimentalDecorators": true,
     "jsx": "react",
+    "declaration": false,
     "alwaysStrict": true,
     "allowJs": true,
+    "noEmitHelpers": true,
     "importHelpers": true,
-    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "noImplicitUseStrict": false,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "noImplicitReturn": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
     "lib": [
       "es7",
       "es5",
       "es2015.promise",
       "es2015.generator",
+      "es2016",
       "dom"
     ],
+    "compileOnSave": true,
+    "skipLibCheck": true,
     "typeRoots": [
       "node_modules/@types"
     ]

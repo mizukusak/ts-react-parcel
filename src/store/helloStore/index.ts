@@ -2,7 +2,7 @@ import { observable, action, runInAction, computed } from 'mobx'
 
 import { StoreExt } from './../../util/reactExt'
 
-class HelloStore extends StoreExt {
+export class HelloStore extends StoreExt {
   @observable
   public userInfo: any = null
 
@@ -43,6 +43,6 @@ class HelloStore extends StoreExt {
 const helloStore = new HelloStore()
 
 export {
-  helloStore as default,
-  HelloStore
+  helloStore as default
+//  export HelloStore
 }

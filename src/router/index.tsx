@@ -6,19 +6,22 @@ import asyncComponent from './asyncComponent'
 const Home = asyncComponent(() => import('./../views/Home').then(mod => mod.default))
 const Login = asyncComponent(() => import('./../views/Login').then(mod => mod.default))
 
-// 权限控制
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    false ? (
-      <Component {...props} />
-    ) : (
-        <Redirect to={{
-          pathname: '/login',
-          state: { from: props.location }
-        }} />
-      )
-  )} />
-)
+let isLogin=false;
+const PrivateRoute = ({ component, ...rest }: {component: any, [rest: string]: any}) => {
+  const Component = component
+  return (
+    <Route {...rest} render={props => (
+      isLogin ? (
+        <Component {...props} />
+      ) : (
+          <Redirect to={{
+            pathname: '/login',
+            state: { from: props.location }
+          }} />
+        )
+    )} />
+  )
+}
 
 const App = () => (
   <Router>

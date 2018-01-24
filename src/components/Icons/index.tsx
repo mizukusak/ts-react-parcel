@@ -7,7 +7,7 @@ const iconList = [
     'vue',
 ]
 
-interface IconProps {
+export interface IconProps {
     color?: string
     className?: string
     height?: number
@@ -29,14 +29,14 @@ export default class Icon extends React.Component<IconProps, {}> {
 
     render() {
         const { kind, preview } = this.props
-        return preview ? this.renderPreview() : this.renderIcon(kind)
+        return preview ? this.renderPreview() : this.renderIcon(kind || "")
     }
 
     renderPreview() {
         return (<div>{ iconList.map(kind => this.renderPreviewKind(kind)) }</div>)
     }
 
-    renderIcon(kind) {
+    renderIcon(kind: string) {
         const { wrapperStyle } = this.props
         if (wrapperStyle) {
             return (<div style={wrapperStyle}>{ this.getIcon(kind) }</div>)
@@ -44,7 +44,7 @@ export default class Icon extends React.Component<IconProps, {}> {
         return this.getIcon(kind)
     }
 
-    renderPreviewKind(kind) {
+    renderPreviewKind(kind: string) {
         return (
             <div key={kind}>
                 <h3>&lt;Icon kind="{kind}" /&gt;</h3>
@@ -53,7 +53,7 @@ export default class Icon extends React.Component<IconProps, {}> {
         )
     }
 
-    getIcon(kind) {
+    getIcon(kind: string) {
         const { color, height, onClick, size, style, width, className } = this.props
 
         switch (kind) {

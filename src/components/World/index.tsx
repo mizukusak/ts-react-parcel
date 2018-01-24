@@ -9,7 +9,7 @@ import * as scssStyles from './index.css'
 import { WorldStore } from './../../store/worldStore'
 import Icon from './../Icons'
 
-interface Props {
+export interface Props {
   worldStore?: WorldStore
 }
 
@@ -24,16 +24,16 @@ export default class World extends React.Component<Props, {}> {
         <div>
           <h1 className={scssStyles.scss}>scss!!</h1>
         </div>
-        <Button type="primary" onClick={store.getUserInfo}>点击请求</Button>
+        <Button type="primary" onClick={store!.getUserInfo}>点击请求</Button>
         <div className={scssStyles.btnContainer}>
-          <Button type="danger" onClick={store.getError}>点击错误的请求</Button>
+          <Button type="danger" onClick={store!.getError}>点击错误的请求</Button>
         </div>
         {
-          store.loading
+          store!.loading
             ?
             <div>loading......</div>
             :
-            <div>{JSON.stringify(store.userInfo)}</div>
+            <div>{JSON.stringify(store!.userInfo)}</div>
         }
         <Icon kind="stage" />
       </div>

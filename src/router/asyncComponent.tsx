@@ -2,14 +2,15 @@
  * 组件lazyload
  */
 import * as React from 'react'
+import {ReactComponent} from "../util/reactExt";
 
 interface States {
-  Component: typeof React.Component
+  Component: ReactComponent| null
 }
 
-export default function asyncComponent(getComponent) {
+export default function asyncComponent(getComponent: () => Promise<any>) {
   return class AsyncComponent extends React.Component<{}, States> {
-    constructor(props) {
+    constructor(props: any) {
       super(props)
       this.state = {
         Component: null
@@ -19,7 +20,7 @@ export default function asyncComponent(getComponent) {
     async componentWillMount() {
       if (!this.state.Component) {
         try {
-          const Component: typeof React.Component = await getComponent()
+          const Component: ReactComponent = await getComponent()
           this.setState({
             Component
           })

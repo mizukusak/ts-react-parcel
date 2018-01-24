@@ -7,11 +7,11 @@ import { useStrict } from 'mobx'
 
 import App from './router'
 import store from './store'
-import { RequireImport } from './types/interface'
+import {ReactComponent} from "./util/reactExt";
 
 useStrict(true)
 
-const render = (Component) => {
+const render = (Component: ReactComponent) => {
   ReactDOM.render(
     <Provider {...store}>
       <Component />
